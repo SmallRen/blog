@@ -1,0 +1,14 @@
+#服务端口
+server:
+  port: 8081
+  servlet:
+    context-path: /
+
+#debug: true
+#spring连接postgresql数据库
+spring:
+  datasource:
+    url: jdbc:postgresql://118.24.166.159:5432/blog
+    username: postgres
+    password: r011698.
+    driver-class-name: org.postgresql.Driver
