@@ -1,6 +1,6 @@
 #服务端口
 server:
-  port: 8085
+  port: 80
   servlet:
     context-path: /
 

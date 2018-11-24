@@ -9,9 +9,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 abstract class BaseController {
-      protected static final Logger logger = LoggerFactory.getLogger(BaseController.class);
-      @RequestMapping("/{page}")
-      private String page(@PathVariable String page){
-          return page;
-      }
+    protected static final Logger logger = LoggerFactory.getLogger(BaseController.class);
+
+    /**
+     *
+     * @param page
+     * @return 通用页面跳转
+     */
+    @RequestMapping("/{page}")
+    private String page(@PathVariable String page) {
+        return page;
+    }
+
+    @RequestMapping("/")
+    private String index() {
+        return "index.html";
+
+    }
 }

@@ -14,14 +14,10 @@ public class UserController extends BaseController{
     UserService userService;
 
     @ResponseBody
-    @RequestMapping("/")
+    @RequestMapping("/testSql")
     private boolean login(User user) {
         return userService.login(user);
 
     }
-    @RequestMapping("/index.html")
-    private String index() {
-        return "index.html";
 
-    }
 }
