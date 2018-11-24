@@ -23,3 +23,10 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+/logs/
+src/main/java/com/renbaojia/blog/dao/AdminUserMapper.java
+src/main/java/com/renbaojia/blog/model/AdminUser.java
+src/main/java/com/renbaojia/blog/model/AdminUserExample.java
+src/main/java/com/renbaojia/blog/utils/
+src/main/resources/mapper/
+!/logs/

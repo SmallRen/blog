@@ -20,7 +20,7 @@ spring:
       min-idle: 5
       #最大连接数
       max-active: 10
-     # 配置获取连接等待超时的时间
+      # 配置获取连接等待超时的时间
       query-timeout: 6000
       maxWait: 2000
       #事务查询超时时间
