@@ -14,7 +14,13 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
-
+/**
+ * @Created with IntelliJ IDEA.
+ * @Author: renbaojia
+ * @Date: 2018-11-25 04:27
+ * @version: 1.0
+ * @Description: Druid数据库连接池配置
+ */
 @Configuration
 public class DruidConfig {
 
