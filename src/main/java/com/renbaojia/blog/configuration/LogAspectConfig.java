@@ -23,7 +23,7 @@ import java.util.Arrays;
  */
 @Aspect
 @Configuration
-public class LogAspect {
+public class LogAspectConfig {
 
     private Logger logger = LoggerFactory.getLogger(DruidConfig.class);
 

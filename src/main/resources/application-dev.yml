@@ -34,6 +34,12 @@ spring:
       filters: stat,wall,config
       #日志显示sql
       logSlowSql: true
+  mvc:
+    static-path-pattern: /static/**
+    #静态资源乱码
+  http:
+    encoding:
+      force: true
 
 
 #mybatis
@@ -44,9 +50,4 @@ mybatis:
 logging:
   level.com.renbaojia.blog:  debug
   file: ./logs/blog.log
-
-
-
-
-
 

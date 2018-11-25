@@ -19,7 +19,6 @@ abstract class BaseController {
     protected static final Logger logger = LoggerFactory.getLogger(BaseController.class);
 
     /**
-     *
      * @param page
      * @return 通用页面跳转
      */
