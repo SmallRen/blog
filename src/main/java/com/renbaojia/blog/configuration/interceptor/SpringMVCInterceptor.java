@@ -23,7 +23,8 @@ public class SpringMVCInterceptor implements HandlerInterceptor {
         HttpSession session = httpServletRequest.getSession();
         String requestedSessionId = httpServletRequest.getRequestedSessionId();
         System.out.println("拦截器获取的"+requestedSessionId);
-        session.setAttribute("SESSION_USERNAME", requestedSessionId);
+        System.out.println("拦截器获取的"+session.getId());
+        session.setAttribute("SESSION_USERNAME", session.getId());
         return true;
     }
 
