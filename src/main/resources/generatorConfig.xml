@@ -5,7 +5,9 @@
 
 <generatorConfiguration>
     <context id="DB2Tables" targetRuntime="MyBatis3">
-        <commentGenerator>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <commentGenerator >
+            <!--字段注释信息-->
             <property name="suppressAllComments" value="true" />
         </commentGenerator>
         <!--配置数据库连接信息-->
@@ -20,18 +22,18 @@
         </javaTypeResolver>
         <!--指定Javabeen生成的位置-->
         <javaModelGenerator targetPackage="com.renbaojia.blog.model" targetProject=".\src\main\java">
-            <property name="enableSubPackages" value="true"/>
+            <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
         <!--指定sql映射文件的位置-->
         <sqlMapGenerator targetPackage="mapper" targetProject=".\src\main\resources">
-            <property name="enableSubPackages" value="true"/>
+            <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
         <!--指定dao接口生成的位置，mapper接口-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.renbaojia.blog.dao" targetProject=".\src\main\java">
-            <property name="enableSubPackages" value="true"/>
+            <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
-        <table tableName="user" domainObjectName="User"/>
-        <table tableName="admin_user" domainObjectName="AdminUser"/>
+        <table schema="public" tableName="user" domainObjectName="User"/>
+        <table schema="public" tableName="admin_user" domainObjectName="AdminUser"/>
     </context>
 </generatorConfiguration>

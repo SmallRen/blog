@@ -9,10 +9,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication
 // Mapper扫描
 @MapperScan("com.renbaojia.blog.dao")
-//关闭security
-@EnableAutoConfiguration(exclude = {
-        org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class
-})
 public class BlogApplication {
 
     public static void main(String[] args) {

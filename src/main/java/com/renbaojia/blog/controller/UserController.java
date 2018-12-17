@@ -1,6 +1,5 @@
 package com.renbaojia.blog.controller;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.qq.connect.QQConnectException;

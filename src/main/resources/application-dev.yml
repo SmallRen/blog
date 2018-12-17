@@ -40,7 +40,14 @@ spring:
   http:
     encoding:
       force: true
-
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
 
 #mybatis
 mybatis:
@@ -50,4 +57,5 @@ mybatis:
 logging:
   level.com.renbaojia.blog:  debug
   file: ./logs/blog.log
+
 

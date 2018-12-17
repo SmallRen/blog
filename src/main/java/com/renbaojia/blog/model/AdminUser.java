@@ -2,23 +2,21 @@ package com.renbaojia.blog.model;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
-    private Integer userId;
+public class AdminUser implements Serializable {
+    private Integer adminId;
 
     private String username;
 
     private String password;
 
-    private Object dsdf;
-
     private static final long serialVersionUID = 1L;
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getAdminId() {
+        return adminId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setAdminId(Integer adminId) {
+        this.adminId = adminId;
     }
 
     public String getUsername() {
@@ -35,13 +33,5 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
-    }
-
-    public Object getDsdf() {
-        return dsdf;
-    }
-
-    public void setDsdf(Object dsdf) {
-        this.dsdf = dsdf;
     }
 }

@@ -26,6 +26,9 @@ abstract class BaseController {
     private String page(@PathVariable String page) {
         return page;
     }
-
+    @RequestMapping("/")
+    private String index( ) {
+        return "index.html";
+    }
 
 }
