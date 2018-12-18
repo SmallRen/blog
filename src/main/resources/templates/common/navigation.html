@@ -1,34 +1,102 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<div th:fragment="navigation" xmlns:th="http://www.w3.org/1999/xhtml">
-    <div class="header">
-        <div class="menu-btn">
-            <div class="menu"></div>
-        </div>
-        <h1 class="logo">
-            <a href="index.html">
-                <span>MYBLOG</span>
-                <img src="/static/img/logo.png">
-            </a>
-        </h1>
-        <div class="nav">
-            <a href="index.html" class="active">文章</a>
-            <a href="whisper.html">微语</a>
-            <a href="leacots.html">留言</a>
-            <a href="album.html">相册</a>
-            <a href="about.html">关于</a>
-        </div>
-        <ul class="layui-nav header-down-nav">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="header" th:fragment="navigation(flag)">
+    <div class="menu-btn">
+        <div class="menu"></div>
+    </div>
+    <h1 class="logo">
+        <a href="index.html">
+            <span>MYBLOG</span>
+            <img src="/static/img/logo.png">
+        </a>
+    </h1>
+    <div class="nav"  th:if=" ${flag} eq 'index'">
+        <a href="index.html" class="active">文章</a>
+        <a href="whisper.html">微语</a>
+        <a href="message.html">留言</a>
+        <a href="album.html">相册</a>
+        <a href="about.html">关于</a>
+    </div>
+
+    <div class="nav"  th:if=" ${flag} eq 'whisper'">
+        <a href="index.html">文章</a>
+        <a href="whisper.html" class="active">微语</a>
+        <a href="message.html">留言</a>
+        <a href="album.html">相册</a>
+        <a href="about.html">关于</a>
+    </div>
+    <div class="nav"  th:if=" ${flag} eq 'message'">
+        <a href="index.html">文章</a>
+        <a href="whisper.html">微语</a>
+        <a href="message.html" class="active">留言</a>
+        <a href="album.html">相册</a>
+        <a href="about.html">关于</a>
+    </div>
+    <div class="nav"  th:if=" ${flag} eq 'album'">
+        <a href="index.html">文章</a>
+        <a href="whisper.html">微语</a>
+        <a href="message.html">留言</a>
+        <a href="album.html" class="active">相册</a>
+        <a href="about.html">关于</a>
+    </div>
+    <div class="nav"  th:if=" ${flag} eq 'about'">
+        <a href="index.html">文章</a>
+        <a href="whisper.html">微语</a>
+        <a href="message.html">留言</a>
+        <a href="album.html">相册</a>
+        <a href="about.html" class="active">关于</a>
+    </div>
+    <ul class="layui-nav header-down-nav" th:if=" ${flag} eq 'index'">
+
             <li class="layui-nav-item"><a href="index.html" class="active">文章</a></li>
             <li class="layui-nav-item"><a href="whisper.html">微语</a></li>
-            <li class="layui-nav-item"><a href="leacots.html">留言</a></li>
+            <li class="layui-nav-item"><a href="message.html">留言</a></li>
             <li class="layui-nav-item"><a href="album.html">相册</a></li>
             <li class="layui-nav-item"><a href="about.html">关于</a></li>
-            <li class="layui-nav-item"><a href="about.html">登录1</a></li>
-        </ul>
-        <p class="welcome-text">
-            <span data-method="offset" class="model">登录</span>
-        </p>
-    </div>
+            <li class="layui-nav-item"><a href="/qqLogin">登录</a></li>
+    </ul>
+    <ul class="layui-nav header-down-nav" th:if=" ${flag} eq 'whisper'">
+            <li class="layui-nav-item"><a href="index.html">文章</a></li>
+            <li class="layui-nav-item"><a href="whisper.html" class="active">微语</a></li>
+            <li class="layui-nav-item"><a href="message.html">留言</a></li>
+            <li class="layui-nav-item"><a href="album.html">相册</a></li>
+            <li class="layui-nav-item"><a href="about.html">关于</a></li>
+            <li class="layui-nav-item"><a href="/qqLogin">登录</a></li>
+    </ul>
+    <ul class="layui-nav header-down-nav" th:if=" ${flag} eq 'message'">
+            <li class="layui-nav-item"><a href="index.html">文章</a></li>
+            <li class="layui-nav-item"><a href="whisper.html">微语</a></li>
+            <li class="layui-nav-item"><a href="message.html" class="active">留言</a></li>
+            <li class="layui-nav-item"><a href="album.html">相册</a></li>
+            <li class="layui-nav-item"><a href="about.html">关于</a></li>
+            <li class="layui-nav-item"><a href="/qqLogin">登录</a></li>
+    </ul>
+    <ul class="layui-nav header-down-nav" th:if=" ${flag} eq 'album'">
+            <li class="layui-nav-item"><a href="index.html">文章</a></li>
+            <li class="layui-nav-item"><a href="whisper.html">微语</a></li>
+            <li class="layui-nav-item"><a href="message.html">留言</a></li>
+            <li class="layui-nav-item"><a href="album.html" class="active">相册</a></li>
+            <li class="layui-nav-item"><a href="about.html">关于</a></li>
+            <li class="layui-nav-item"><a href="/qqLogin">登录</a></li>
+    </ul>
+    <ul class="layui-nav header-down-nav" th:if=" ${flag} eq 'about'">
+            <li class="layui-nav-item"><a href="index.html">文章</a></li>
+            <li class="layui-nav-item"><a href="whisper.html">微语</a></li>
+            <li class="layui-nav-item"><a href="message.html">留言</a></li>
+            <li class="layui-nav-item"><a href="album.html">相册</a></li>
+            <li class="layui-nav-item"><a href="about.html" class="active">关于</a></li>
+            <li class="layui-nav-item"><a href="/qqLogin">登录</a></li>
+    </ul>
+    <ul class="layui-nav header-down-nav" th:if=" ${flag} eq 'qqLogin'">
+            <li class="layui-nav-item"><a href="index.html">文章</a></li>
+            <li class="layui-nav-item"><a href="whisper.html">微语</a></li>
+            <li class="layui-nav-item"><a href="message.html">留言</a></li>
+            <li class="layui-nav-item"><a href="album.html">相册</a></li>
+            <li class="layui-nav-item"><a href="about.html">关于</a></li>
+            <li class="layui-nav-item"><a href="/qqLogin" class="active">登录</a></li>
+    </ul>
+    <p class="welcome-text">
+        <span data-method="offset" class="model">登录</span>
+    </p>
 </div>
 </html>

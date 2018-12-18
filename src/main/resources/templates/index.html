@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="common/header :: header(~{::title},~{},~{})">
-  <title >index</title>
-
+  <title>index</title>
 </head>
 <body>
-<div th:insert="common/navigation :: navigation"></div>
+<div th:replace="common/navigation :: navigation('index')"></div>
 
   <div class="banner">
     <div class="cont w1000">

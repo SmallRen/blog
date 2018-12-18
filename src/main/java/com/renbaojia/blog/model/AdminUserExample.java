@@ -1,6 +1,8 @@
 package com.renbaojia.blog.model;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class AdminUserExample {
@@ -102,6 +104,32 @@ public class AdminUserExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
+        }
+
+        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
+            if (value == null) {
+                throw new RuntimeException("Value for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value.getTime()), property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
+            if (values == null || values.size() == 0) {
+                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
+            }
+            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
+            Iterator<Date> iter = values.iterator();
+            while (iter.hasNext()) {
+                dateList.add(new java.sql.Date(iter.next().getTime()));
+            }
+            addCriterion(condition, dateList, property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
+            if (value1 == null || value2 == null) {
+                throw new RuntimeException("Between values for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andAdminIdIsNull() {
@@ -234,6 +262,146 @@ public class AdminUserExample {
             return (Criteria) this;
         }
 
+        public Criteria andPhoneIsNull() {
+            addCriterion("phone is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneIsNotNull() {
+            addCriterion("phone is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneEqualTo(String value) {
+            addCriterion("phone =", value, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneNotEqualTo(String value) {
+            addCriterion("phone <>", value, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneGreaterThan(String value) {
+            addCriterion("phone >", value, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneGreaterThanOrEqualTo(String value) {
+            addCriterion("phone >=", value, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneLessThan(String value) {
+            addCriterion("phone <", value, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneLessThanOrEqualTo(String value) {
+            addCriterion("phone <=", value, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneLike(String value) {
+            addCriterion("phone like", value, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneNotLike(String value) {
+            addCriterion("phone not like", value, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneIn(List<String> values) {
+            addCriterion("phone in", values, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneNotIn(List<String> values) {
+            addCriterion("phone not in", values, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneBetween(String value1, String value2) {
+            addCriterion("phone between", value1, value2, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhoneNotBetween(String value1, String value2) {
+            addCriterion("phone not between", value1, value2, "phone");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgIsNull() {
+            addCriterion("img is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgIsNotNull() {
+            addCriterion("img is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgEqualTo(String value) {
+            addCriterion("img =", value, "img");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgNotEqualTo(String value) {
+            addCriterion("img <>", value, "img");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgGreaterThan(String value) {
+            addCriterion("img >", value, "img");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgGreaterThanOrEqualTo(String value) {
+            addCriterion("img >=", value, "img");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgLessThan(String value) {
+            addCriterion("img <", value, "img");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgLessThanOrEqualTo(String value) {
+            addCriterion("img <=", value, "img");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgLike(String value) {
+            addCriterion("img like", value, "img");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgNotLike(String value) {
+            addCriterion("img not like", value, "img");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgIn(List<String> values) {
+            addCriterion("img in", values, "img");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgNotIn(List<String> values) {
+            addCriterion("img not in", values, "img");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgBetween(String value1, String value2) {
+            addCriterion("img between", value1, value2, "img");
+            return (Criteria) this;
+        }
+
+        public Criteria andImgNotBetween(String value1, String value2) {
+            addCriterion("img not between", value1, value2, "img");
+            return (Criteria) this;
+        }
+
         public Criteria andPasswordIsNull() {
             addCriterion("password is null");
             return (Criteria) this;
@@ -301,6 +469,446 @@ public class AdminUserExample {
 
         public Criteria andPasswordNotBetween(String value1, String value2) {
             addCriterion("password not between", value1, value2, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdIsNull() {
+            addCriterion("open_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdIsNotNull() {
+            addCriterion("open_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdEqualTo(Integer value) {
+            addCriterion("open_id =", value, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdNotEqualTo(Integer value) {
+            addCriterion("open_id <>", value, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdGreaterThan(Integer value) {
+            addCriterion("open_id >", value, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("open_id >=", value, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdLessThan(Integer value) {
+            addCriterion("open_id <", value, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdLessThanOrEqualTo(Integer value) {
+            addCriterion("open_id <=", value, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdIn(List<Integer> values) {
+            addCriterion("open_id in", values, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdNotIn(List<Integer> values) {
+            addCriterion("open_id not in", values, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdBetween(Integer value1, Integer value2) {
+            addCriterion("open_id between", value1, value2, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOpenIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("open_id not between", value1, value2, "openId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenIsNull() {
+            addCriterion("token is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenIsNotNull() {
+            addCriterion("token is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenEqualTo(String value) {
+            addCriterion("token =", value, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenNotEqualTo(String value) {
+            addCriterion("token <>", value, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenGreaterThan(String value) {
+            addCriterion("token >", value, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenGreaterThanOrEqualTo(String value) {
+            addCriterion("token >=", value, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenLessThan(String value) {
+            addCriterion("token <", value, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenLessThanOrEqualTo(String value) {
+            addCriterion("token <=", value, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenLike(String value) {
+            addCriterion("token like", value, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenNotLike(String value) {
+            addCriterion("token not like", value, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenIn(List<String> values) {
+            addCriterion("token in", values, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenNotIn(List<String> values) {
+            addCriterion("token not in", values, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenBetween(String value1, String value2) {
+            addCriterion("token between", value1, value2, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andTokenNotBetween(String value1, String value2) {
+            addCriterion("token not between", value1, value2, "token");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeIsNull() {
+            addCriterion("login_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeIsNotNull() {
+            addCriterion("login_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeEqualTo(Date value) {
+            addCriterionForJDBCDate("login_time =", value, "loginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeNotEqualTo(Date value) {
+            addCriterionForJDBCDate("login_time <>", value, "loginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeGreaterThan(Date value) {
+            addCriterionForJDBCDate("login_time >", value, "loginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("login_time >=", value, "loginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeLessThan(Date value) {
+            addCriterionForJDBCDate("login_time <", value, "loginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("login_time <=", value, "loginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeIn(List<Date> values) {
+            addCriterionForJDBCDate("login_time in", values, "loginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeNotIn(List<Date> values) {
+            addCriterionForJDBCDate("login_time not in", values, "loginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("login_time between", value1, value2, "loginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginTimeNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("login_time not between", value1, value2, "loginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeIsNull() {
+            addCriterion("last_login_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeIsNotNull() {
+            addCriterion("last_login_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeEqualTo(Date value) {
+            addCriterionForJDBCDate("last_login_time =", value, "lastLoginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeNotEqualTo(Date value) {
+            addCriterionForJDBCDate("last_login_time <>", value, "lastLoginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeGreaterThan(Date value) {
+            addCriterionForJDBCDate("last_login_time >", value, "lastLoginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("last_login_time >=", value, "lastLoginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeLessThan(Date value) {
+            addCriterionForJDBCDate("last_login_time <", value, "lastLoginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("last_login_time <=", value, "lastLoginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeIn(List<Date> values) {
+            addCriterionForJDBCDate("last_login_time in", values, "lastLoginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeNotIn(List<Date> values) {
+            addCriterionForJDBCDate("last_login_time not in", values, "lastLoginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("last_login_time between", value1, value2, "lastLoginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLastLoginTimeNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("last_login_time not between", value1, value2, "lastLoginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginIsNull() {
+            addCriterion("other_login is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginIsNotNull() {
+            addCriterion("other_login is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginEqualTo(String value) {
+            addCriterion("other_login =", value, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginNotEqualTo(String value) {
+            addCriterion("other_login <>", value, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginGreaterThan(String value) {
+            addCriterion("other_login >", value, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginGreaterThanOrEqualTo(String value) {
+            addCriterion("other_login >=", value, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginLessThan(String value) {
+            addCriterion("other_login <", value, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginLessThanOrEqualTo(String value) {
+            addCriterion("other_login <=", value, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginLike(String value) {
+            addCriterion("other_login like", value, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginNotLike(String value) {
+            addCriterion("other_login not like", value, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginIn(List<String> values) {
+            addCriterion("other_login in", values, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginNotIn(List<String> values) {
+            addCriterion("other_login not in", values, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginBetween(String value1, String value2) {
+            addCriterion("other_login between", value1, value2, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherLoginNotBetween(String value1, String value2) {
+            addCriterion("other_login not between", value1, value2, "otherLogin");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIsNull() {
+            addCriterion("create_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIsNotNull() {
+            addCriterion("create_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeEqualTo(Date value) {
+            addCriterionForJDBCDate("create_time =", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotEqualTo(Date value) {
+            addCriterionForJDBCDate("create_time <>", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThan(Date value) {
+            addCriterionForJDBCDate("create_time >", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("create_time >=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThan(Date value) {
+            addCriterionForJDBCDate("create_time <", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("create_time <=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIn(List<Date> values) {
+            addCriterionForJDBCDate("create_time in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotIn(List<Date> values) {
+            addCriterionForJDBCDate("create_time not in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("create_time between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("create_time not between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeIsNull() {
+            addCriterion("update_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeIsNotNull() {
+            addCriterion("update_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeEqualTo(Date value) {
+            addCriterionForJDBCDate("update_time =", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeNotEqualTo(Date value) {
+            addCriterionForJDBCDate("update_time <>", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeGreaterThan(Date value) {
+            addCriterionForJDBCDate("update_time >", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("update_time >=", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeLessThan(Date value) {
+            addCriterionForJDBCDate("update_time <", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("update_time <=", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeIn(List<Date> values) {
+            addCriterionForJDBCDate("update_time in", values, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeNotIn(List<Date> values) {
+            addCriterionForJDBCDate("update_time not in", values, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("update_time between", value1, value2, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
     }

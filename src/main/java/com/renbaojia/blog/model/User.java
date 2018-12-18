@@ -1,6 +1,7 @@
 package com.renbaojia.blog.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class User implements Serializable {
     private Integer userId;
@@ -9,7 +10,29 @@ public class User implements Serializable {
 
     private String password;
 
-    private Object dsdf;
+    private String summarize;
+
+    private String phone;
+
+    private String img;
+
+    private String gender;
+
+    private String token;
+
+    private String email;
+
+    private String openId;
+
+    private Integer loginNumber;
+
+    private Date loginTime;
+
+    private Date lastLoginTime;
+
+    private Date createTime;
+
+    private Date updateTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -37,11 +60,99 @@ public class User implements Serializable {
         this.password = password == null ? null : password.trim();
     }
 
-    public Object getDsdf() {
-        return dsdf;
+    public String getSummarize() {
+        return summarize;
     }
 
-    public void setDsdf(Object dsdf) {
-        this.dsdf = dsdf;
+    public void setSummarize(String summarize) {
+        this.summarize = summarize == null ? null : summarize.trim();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img == null ? null : img.trim();
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender == null ? null : gender.trim();
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token == null ? null : token.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId == null ? null : openId.trim();
+    }
+
+    public Integer getLoginNumber() {
+        return loginNumber;
+    }
+
+    public void setLoginNumber(Integer loginNumber) {
+        this.loginNumber = loginNumber;
+    }
+
+    public Date getLoginTime() {
+        return loginTime;
+    }
+
+    public void setLoginTime(Date loginTime) {
+        this.loginTime = loginTime;
+    }
+
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
