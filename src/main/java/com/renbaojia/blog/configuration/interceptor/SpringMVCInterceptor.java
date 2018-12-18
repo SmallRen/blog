@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
  * @Date 2018-11-25 04:27
  * @Description 拦截器配置，拦截所有请求
  */
+@Component
 public class SpringMVCInterceptor implements HandlerInterceptor {
     private Logger logger = LoggerFactory.getLogger(SpringMVCInterceptor.class);
 

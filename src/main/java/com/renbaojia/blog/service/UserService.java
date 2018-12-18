@@ -33,4 +33,11 @@ public interface UserService {
      * @return
      */
     User getUser(String username);
+
+    /**
+     * 根据openid查询用户是否存在
+     * @param openID
+     * @return
+     */
+    User selectByOpenID(String openID);
 }

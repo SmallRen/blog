@@ -37,6 +37,8 @@ spring:
   mvc:
     static-path-pattern: /static/**
     #静态资源乱码
+    favicon:
+      enabled: false
   http:
     encoding:
       force: true
@@ -45,7 +47,6 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
     encoding: UTF-8
-    mode: HTML5
     servlet:
       content-type: text/html
 
@@ -57,5 +58,7 @@ mybatis:
 logging:
   level.com.renbaojia.blog:  debug
   file: ./logs/blog.log
+
+
 
 

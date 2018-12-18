@@ -45,12 +45,21 @@ public class UserImpl implements UserService {
     @Override
     public User getUser(String username) {
         UserExample userExample = new UserExample();
-        UserExample.Criteria criteria = userExample.createCriteria();
+        UserExample.Criteria criteria = new UserExample().createCriteria();
         criteria.andUsernameEqualTo(username);
         List<User> users = userMapper.selectByExample(userExample);
         if (users.size() == 1) {
             return users.get(0);
         }
         return null;
+    }
+
+    @Override
+    public User selectByOpenID(String openID) {
+        UserExample userExample = new UserExample();
+        UserExample.Criteria criteria = new UserExample().createCriteria();
+        criteria.andOpenIdEqualTo(openID);
+        List<User> users = userMapper.selectByExample(userExample);
+        return users.size() != 0 ? users.get(0) : null;
     }
 }
